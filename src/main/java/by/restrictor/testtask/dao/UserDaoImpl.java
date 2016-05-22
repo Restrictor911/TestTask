@@ -36,7 +36,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public void removeUser(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        User user = (User)session.load(User.class, new Integer(id));
+        User user = (User)session.load(User.class, id);
 
         if (user != null) session.delete(user);
     }
@@ -44,31 +44,29 @@ public class UserDaoImpl implements UserDao {
     @Override
     public User getUserById(int id) {
         Session session = this.sessionFactory.getCurrentSession();
-        User user = (User)session.get(User.class, new Integer(id));
-        return user;
+        return (User)session.get(User.class, id);
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public List<User> getUsersByName(String name, int page) {
         Session session = this.sessionFactory.getCurrentSession();
-        String query = "from User where name like '%" + name + "%' order by name";
-        List<User> list = session.createQuery(query)
+        String query = "from User where name like '%" + name +
+                "%' order by id";
+        return session.createQuery(query)
                 .setFirstResult(resultsPerPage * page)
                 .setMaxResults(resultsPerPage)
                 .list();
-        return list;
     }
 
     @Override
     @SuppressWarnings("unchecked")
     public List<User> listUsers(int page) {
         Session session = this.sessionFactory.getCurrentSession();
-        List<User> list = session.createQuery("from User")
+        return session.createQuery("from User")
                 .setFirstResult(resultsPerPage * page)
                 .setMaxResults(resultsPerPage)
                 .list();
-        return list;
     }
 
     @Override
