@@ -6,7 +6,7 @@ public class Paginator {
     private String mode = "main";
 
     public Paginator(int pages) {
-        this.maxPage = pages - 1;
+        this.maxPage = pages;
     }
 
     public String getMode() {

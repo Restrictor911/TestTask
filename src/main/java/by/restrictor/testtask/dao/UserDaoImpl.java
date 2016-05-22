@@ -72,8 +72,8 @@ public class UserDaoImpl implements UserDao {
     @Override
     public int countPages() {
         Session session = this.sessionFactory.getCurrentSession();
-        long pages = (Long)session.createQuery("select count(*) from User")
-                .uniqueResult()/resultsPerPage;
+        long pages = ((Long)session.createQuery("select count(*) from User")
+                .uniqueResult() - 1)/resultsPerPage;
         return (int)pages;
     }
 
@@ -81,7 +81,8 @@ public class UserDaoImpl implements UserDao {
     public int countPages(String name) {
         Session session = this.sessionFactory.getCurrentSession();
         String query = "select count(*) from User where name like '%" + name + "%'";
-        long pages = (Long)session.createQuery(query).uniqueResult()/resultsPerPage;
+        long pages = ((Long)session.createQuery(query).
+                uniqueResult() - 1)/resultsPerPage;
         return (int)pages;
     }
 }
