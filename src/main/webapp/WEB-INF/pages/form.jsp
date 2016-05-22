@@ -101,7 +101,12 @@
                 </form:label>
             </td>
             <td>
+                <c:if test="${user.id == 0}">
                 <form:input path="name" size="25" value="New User"/>
+                </c:if>
+                <c:if test="${user.id > 0}">
+                <form:input path="name" size="25" value="${user.name}"/>
+                </c:if>
             </td>
         </tr>
         <tr>
@@ -111,7 +116,12 @@
                 </form:label>
             </td>
             <td>
+                <c:if test="${user.id == 0}">
                 <form:input path="age" size="3" value="21"/>
+                </c:if>
+                <c:if test="${user.id > 0}">
+                <form:input path="age" size="3" value="${user.age}"/>
+                </c:if>
             </td>
         </tr>
         <tr>
