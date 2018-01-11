@@ -91,7 +91,10 @@ public class UserController {
 
     @RequestMapping(value = "/search")
     public String search(@ModelAttribute("user") User user, Model model){
-        if (user.getName().equals("")) return "redirect:main";
+        if (user.getName().equals("")) {
+            return "redirect:main";
+        }
+
         paginator = new Paginator(userService.countPages(user.getName()));
         paginator.setMode("search");
         model.addAttribute("paginator", paginator);
@@ -104,9 +107,10 @@ public class UserController {
 
     @RequestMapping(value = "/search/{page}")
     public String navSearch(@PathVariable("page") int page,
-                            @RequestParam("name") String name,
+                            @RequestParam(value = "name", required = false) String name,
                             Model model){
         paginator.setCurrentPage(page);
+
         User user = new User();
         user.setName(name);
         model.addAttribute("paginator", paginator);
