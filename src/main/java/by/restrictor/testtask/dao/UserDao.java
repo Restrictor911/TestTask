@@ -20,7 +20,7 @@ public interface UserDao {
 
     public List<User> listUsers(int page);
 
-    public int countPages();
+    public int count();
 
-    public int countPages(String name);
+    public int count(String name);
 }

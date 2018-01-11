@@ -3,23 +3,18 @@ package by.restrictor.testtask.dao;
 import by.restrictor.testtask.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
+
+    @Autowired
     private SessionFactory sessionFactory;
-    private int resultsPerPage;
 
-
-    public void setResultsPerPage(int resultsPerPage) {
-        this.resultsPerPage = resultsPerPage;
-    }
-
-    public void setSessionFactory(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
-    }
+    private int resultsPerPage = 10;
 
     @Override
     public void addUser(User user) {
@@ -70,7 +65,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int countPages() {
+    public int count() {
         Session session = this.sessionFactory.getCurrentSession();
         long pages = ((Long)session.createQuery("select count(*) from User")
                 .uniqueResult() - 1)/resultsPerPage;
@@ -78,11 +73,11 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public int countPages(String name) {
+    public int count(String name) {
         Session session = this.sessionFactory.getCurrentSession();
         String query = "select count(*) from User where name like '%" + name + "%'";
-        long pages = ((Long)session.createQuery(query).
-                uniqueResult() - 1)/resultsPerPage;
+        long count = (Long)session.createQuery(query).uniqueResult();
+        long pages = (count - 1)/resultsPerPage;
         return (int)pages;
     }
 }

@@ -17,16 +17,21 @@ import javax.validation.Valid;
  */
 @Controller
 public class UserController {
-    UserService userService;
+
+    @Autowired
+    private UserService userService;
     Paginator paginator;
 
-    @Autowired(required = true)
-    @Qualifier(value = "userService")
-    public void setUserService(UserService userService) {
-        this.userService = userService;
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String root(Model model) {
+        paginator = new Paginator(userService.countPages());
+        model.addAttribute("paginator", paginator);
+        model.addAttribute("user", new User());
+        model.addAttribute("users", this.userService.listUsers(0));
+        return "main";
     }
 
-    @RequestMapping(value = "main", method = RequestMethod.GET)
+    @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(Model model) {
         paginator = new Paginator(userService.countPages());
         model.addAttribute("paginator", paginator);
@@ -35,7 +40,7 @@ public class UserController {
         return "main";
     }
 
-    @RequestMapping(value = "main/{page}", method = RequestMethod.GET)
+    @RequestMapping(value = "/main/{page}", method = RequestMethod.GET)
     public String navMain(@PathVariable int page, Model model) {
         paginator.setCurrentPage(page);
         model.addAttribute("paginator", paginator);
