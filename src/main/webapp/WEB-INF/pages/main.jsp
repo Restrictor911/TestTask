@@ -17,14 +17,14 @@
 
     <c:url var="search" value="/search"/>
     <form:form action="${search}" cssClass="searchForm" commandName="user">
-        <form:input path="name" cssClass="searchField" />
+        <form:input path="name" cssClass="search" />
         <input type="submit" class="button searchButton"
             value="<spring:message text="Find"/>"/>
         <div class="clear"></div>
     </form:form>
 
     <c:if test="${!empty users}">
-        <table class="tg">
+        <table class="users">
             <tr>
                 <th width="30" align="right">ID</th>
                 <th width="160" align="left">Name</th>
@@ -52,79 +52,81 @@
         </table>
     </c:if>
 
-    <input type="button" id="addButton" class="button"
-        onclick="location.href='<c:url value="/add"/>'"
-        value="<spring:message text="Add User"/>"/>
+    <div class="footer">
+        <input type="button" id="addButton" class="button"
+            onclick="location.href='<c:url value="/add"/>'"
+            value="<spring:message text="Add User"/>"/>
 
-    <ul class="pages">
-        <c:set var="nameParam" value="${user.name ? '?name=' + user.name : ''}"/>
-        <c:if test="${paginator.currentPage > 0}">
-            <li>
-            <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
-                <span class="linkText">&lt;</span>
-            </a>
-            </li>
-        </c:if>
-        <c:if test="${paginator.currentPage == 0}">
-            <li class="currentPage">
-                <span class="currentText">${paginator.currentPage + 1}</span>
-            </li>
-            <c:forEach var="i" begin="1" end="4">
-                <c:if test="${i <= paginator.maxPage}">
-                    <li>
-                    <a href="<c:url value='/${paginator.mode}/${i}${nameParam}'/>">
-                        <span class="linkText">${i + 1}</span>
-                    </a>
-                    </li>
-                </c:if>
-            </c:forEach>
-        </c:if>
-        <c:if test="${paginator.currentPage == 1}">
-            <li>
-            <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
-                <span class="linkText">${paginator.currentPage}</span>
-            </a>
-            </li>
-            <li class="currentPage">
-                <span class="currentText">${paginator.currentPage + 1}</span>
-            </li>
-            <c:forEach var="i" begin="2" end="4">
-                <c:if test="${i <= paginator.maxPage}">
-                    <li>
-                    <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
-                        <span class="linkText">${i + 1}</span>
-                    </a>
-                    </li>
-                </c:if>
-            </c:forEach>
-        </c:if>
-        <c:if test="${paginator.currentPage > 1}">
-            <c:forEach var="i" begin="${paginator.currentPage - 2}"
-                end="${paginator.currentPage + 2}">
-                <c:if test="${i <= paginator.maxPage && i != paginator.currentPage}">
-                    <li>
-                    <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
-                        <span class="linkText">${i + 1}</span>
-                    </a>
-                    </li>
-                </c:if>
-                <c:if test="${i == paginator.currentPage}">
-                    <li class="currentPage">
-                        <span class="currentText">${paginator.currentPage + 1}</span>
-                    </li>
-                </c:if>
-            </c:forEach>
-        </c:if>
+        <ul class="pages">
+            <c:set var="nameParam" value="${user.name ? '?name=' + user.name : ''}"/>
+            <c:if test="${paginator.currentPage > 0}">
+                <li>
+                <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
+                    <span class="linkText">&lt;</span>
+                </a>
+                </li>
+            </c:if>
+            <c:if test="${paginator.currentPage == 0}">
+                <li class="currentPage">
+                    <span class="currentText">${paginator.currentPage + 1}</span>
+                </li>
+                <c:forEach var="i" begin="1" end="4">
+                    <c:if test="${i <= paginator.maxPage}">
+                        <li>
+                        <a href="<c:url value='/${paginator.mode}/${i}${nameParam}'/>">
+                            <span class="linkText">${i + 1}</span>
+                        </a>
+                        </li>
+                    </c:if>
+                </c:forEach>
+            </c:if>
+            <c:if test="${paginator.currentPage == 1}">
+                <li>
+                <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
+                    <span class="linkText">${paginator.currentPage}</span>
+                </a>
+                </li>
+                <li class="currentPage">
+                    <span class="currentText">${paginator.currentPage + 1}</span>
+                </li>
+                <c:forEach var="i" begin="2" end="4">
+                    <c:if test="${i <= paginator.maxPage}">
+                        <li>
+                        <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
+                            <span class="linkText">${i + 1}</span>
+                        </a>
+                        </li>
+                    </c:if>
+                </c:forEach>
+            </c:if>
+            <c:if test="${paginator.currentPage > 1}">
+                <c:forEach var="i" begin="${paginator.currentPage - 2}"
+                    end="${paginator.currentPage + 2}">
+                    <c:if test="${i <= paginator.maxPage && i != paginator.currentPage}">
+                        <li>
+                        <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
+                            <span class="linkText">${i + 1}</span>
+                        </a>
+                        </li>
+                    </c:if>
+                    <c:if test="${i == paginator.currentPage}">
+                        <li class="currentPage">
+                            <span class="currentText">${paginator.currentPage + 1}</span>
+                        </li>
+                    </c:if>
+                </c:forEach>
+            </c:if>
 
-        <c:if test="${paginator.currentPage < paginator.maxPage}">
-            <li>
-            <a href="<c:url value='/${paginator.mode}/${paginator.currentPage + 1}?name=${user.name}'/>">
-                <span class="linkText">&gt;</span>
-            </a>
-            </li>
-        </c:if>
-    </ul>
-    <div style="clear:both;"></div>
+            <c:if test="${paginator.currentPage < paginator.maxPage}">
+                <li>
+                <a href="<c:url value='/${paginator.mode}/${paginator.currentPage + 1}?name=${user.name}'/>">
+                    <span class="linkText">&gt;</span>
+                </a>
+                </li>
+            </c:if>
+        </ul>
+    </div>
+    <div class="clear"></div>
     </div>
 </body>
 </html>

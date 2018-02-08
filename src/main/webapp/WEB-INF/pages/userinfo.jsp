@@ -11,42 +11,42 @@
 </head>
 <body>
     <div class="content">
-    <div class="header">
-        <a href='<c:url value="/main"/>'><span>JavaRush } Test Task</span></a>
-    </div>
+        <div class="header">
+            <a href='<c:url value="/main"/>'><span>JavaRush } Test Task</span></a>
+        </div>
 
-    <div class="name">${user.name}</div>
-    <table class="tg">
-      <tr>
-        <td width="100">ID</td>
-        <td>${user.id}</td>
-      </tr>
-      <tr>
-        <td width="100">Age</td>
-        <td>${user.age}</td>
-      </tr>
-        <td width="100">Admin</td>
-        <td>
-            <c:if test="${user.isAdmin}">Yes</c:if>
-            <c:if test="${!user.isAdmin}">No</c:if>
-        </td>
-      <tr>
-        <td width="100">Added</td>
-        <td>${user.createdDate}</td>
-      </tr>
-    </table>
+        <div class="page-title">${user.name}</div>
+        <div class="row bordered">
+            <div class="label">ID</div>
+            <div class="value">${user.id}</div>
+        </div>
+        <div class="row bordered">
+            <div class="label">Age</div>
+            <div class="value">${user.age}</div>
+        </div>
+        <div class="row bordered">
+            <div class="label">Admin</div>
+            <div class="value">${user.isAdmin ? 'Yes' : 'No'}</div>
+        </div>
+        <div class="row">
+            <div class="label">Added</div>
+            <div class="value">${user.createdDate}</div>
+        </div>
 
-    <input type="button"
-            onclick="location.href='<c:url value="/main"/>'"
-            value="<spring:message text="<"/>"/>
+        <div class="footer">
+            <input type="button"
+                    onclick="location.href='<c:url value="/main"/>'"
+                    value="<spring:message text="<"/>"/>
 
-    <form:form action="edit/${user.id}">
-        <input type="submit" value="<spring:message text="Edit User"/>"/>
-    </form:form>
-    <form:form action="remove/${user.id}">
-        <input type="submit" value="<spring:message text="Delete User"/>"/>
-    </form:form>
-    <div style="clear:both;"></div>
+            <form:form action="edit/${user.id}">
+                <input type="submit" value="<spring:message text="Edit User"/>"/>
+            </form:form>
+            <form:form action="remove/${user.id}">
+                <input type="submit" value="<spring:message text="Delete User"/>"/>
+            </form:form>
+
+            <div class="clear"></div>
+        </div>
     </div>
 </body>
 </html>

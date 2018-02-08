@@ -1,18 +1,20 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    color: #777;
     background-color: #ddd;
 }
 
 .content {
+    width: 40%;
     margin: 15px auto;
-    padding: 5px;
+    padding: 15px;
     background: #fff;
     box-shadow: 2px 4px 14px 0px #777777;
 }
 
 .header {
-    margin: -15px -15px 0;
+    margin: -25px -25px 0;
 }
 
 .header > a {
@@ -34,9 +36,50 @@ body {
   top: 12px;
 }
 
+.page-title {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border-bottom: 2px solid #999;
+}
+
 table {
-    margin: 10px;
     border-collapse: collapse;
     border-spacing: 0;
     border-color: #fff;
+}
+
+.row {
+    margin-bottom: 10px;
+}
+
+.row.bordered {
+    border-bottom: 1px solid #ccc;
+}
+
+.row .label {
+    display: inline-block;
+    width: 19%;
+    height: 32px;
+    color: #999;
+}
+
+.row .value {
+    display: inline-block;
+    width: 80%;
+    height: 32px;
+    text-align: right;
+}
+
+.footer {
+    padding-top: 15px;
+}
+
+.clear {
+    clear: both;
+}
+
+.error {
+    color: red;
 }

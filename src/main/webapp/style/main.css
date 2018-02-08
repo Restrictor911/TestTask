@@ -1,64 +1,65 @@
-.content {
-    width: 450px;
+.searchForm {
+    padding-top: 10px;
 }
 
-table tr {
+.search {
+    float: left;
+    width: 310px;
+    height: 32px;
+}
+
+.users {
+    width: 100%;
+}
+
+.users tr {
     background-color: #e9e9e9;
 }
 
-table tr:nth-child(even) {
+.users tr:nth-child(even) {
     background-color: #fff;
 }
 
-  .tg td {
+th, td {
     font-size: 14px;
     padding: 10px 10px;
     border: none;
     overflow: hidden;
     word-break: normal;
-    color: #333;
-  }
+}
 
-  .tg th {
-    font-size: 14px;
+.users th {
     font-weight: normal;
-    padding: 10px 10px;
-    border: none;
-    overflow: hidden;
-    word-break: normal;
     color: #fff;
     background-color: #4eb543;
-  }
-  .tg td a {
+}
+
+.users td {
+    color: #333;
+}
+
+.users td a {
     color: #0088cc;
     text-decoration: none;
-  }
+}
 
-  .pages {
+.pages {
     float: left;
-    margin: 10px;
+    margin: 0;
     padding: 0;
-  }
-  .button {
+}
+
+.button {
     float: right;
-    margin: 10px;
     width: 100px;
     padding: 8px 10px;
     background-color: #4eb543;
     font-size: 14px;
     color: #fff;
     border: none;
-  }
-  .searchField {
-    float: left;
-    width: 310px;
-    height: 32px;
-    margin: 10px;
-  }
-  .clear {
-    clear: both;
-  }
-  li {
+}
+
+li {
     display: block;
     float: left;
     margin-right: 10px;
@@ -68,19 +69,22 @@ table tr:nth-child(even) {
     text-align: center;
     font-size: 18px;
     font-family: Arial, sans-serif;
-  }
-  li a {
+}
+
+li a {
     display: block;
     width: 32px;
     height: 32px;
     text-decoration: none;
     color: #fff;
-  }
-  .currentPage {
+}
+
+.currentPage {
     background-color: #ff7e00;
     color: #fff;
-  }
-  span {
+}
+
+span {
     position: relative;
     top: 7px;
-  }
+}
