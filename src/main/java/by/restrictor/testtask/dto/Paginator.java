@@ -1,4 +1,4 @@
-package by.restrictor.testtask.model;
+package by.restrictor.testtask.dto;
 
 public class Paginator {
     private int currentPage = 0;

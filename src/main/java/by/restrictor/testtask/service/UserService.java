@@ -8,19 +8,19 @@ import java.util.List;
  * Created by Restrictor on 17.05.2016.
  */
 public interface UserService {
-    public void addUser(User user);
+    void addUser(User user);
 
-    public void updateUser(User user);
+    void updateUser(User user);
 
-    public void removeUser(int id);
+    void removeUser(int id);
 
-    public User getUserById(int id);
+    User getUserById(int id);
 
-    public List<User> getUsersByName(String name, int page);
+    List<User> getUsersByName(String name, int page);
 
-    public List<User> listUsers(int page);
+    List<User> listUsers(int page);
 
-    public int countPages();
+    int countPages();
 
-    public int countPages(String name);
+    int countPages(String name);
 }

@@ -1,10 +1,9 @@
 package by.restrictor.testtask.controller;
 
-import by.restrictor.testtask.model.Paginator;
+import by.restrictor.testtask.dto.Paginator;
 import by.restrictor.testtask.model.User;
 import by.restrictor.testtask.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,20 +23,13 @@ public class UserController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String root(Model model) {
-        paginator = new Paginator(userService.countPages());
-        model.addAttribute("paginator", paginator);
-        model.addAttribute("user", new User());
-        model.addAttribute("users", this.userService.listUsers(0));
-        return "main";
+        return main(model);
     }
 
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(Model model) {
         paginator = new Paginator(userService.countPages());
-        model.addAttribute("paginator", paginator);
-        model.addAttribute("user", new User());
-        model.addAttribute("users", this.userService.listUsers(0));
-        return "main";
+        return navMain(0, model);
     }
 
     @RequestMapping(value = "/main/{page}", method = RequestMethod.GET)
