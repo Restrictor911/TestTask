@@ -19,14 +19,14 @@
     border: 1px solid #ccc;
 }
 
-input[type=button], input[type=submit] {
+button, input[type=button], input[type=submit] {
     height: 32px;
     background-color: #4eb543;
     color: #fff;
     border: none;
 }
 
-input[type=button] {
+button, input[type=button] {
     float: left;
     width: 32px;
     font-size: 18px;
@@ -37,4 +37,9 @@ input[type=submit] {
     width: 100px;
     padding: 8px 10px;
     font-size: 14px;
+}
+
+button > i {
+    position: relative;
+    left: -10%;
 }

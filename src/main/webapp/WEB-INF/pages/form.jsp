@@ -5,11 +5,12 @@
 <html>
 <head>
     <title>Form Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="/style/style.css"/>
     <link rel="stylesheet" href="/style/form.css"/>
 </head>
 <body>
-    <div class="content">
+<div class="content">
     <div class="header">
         <a href='<c:url value="/main"/>'><span>JavaRush } Test Task</span></a>
     </div>
@@ -59,20 +60,20 @@
         </div>
         <div class="footer">
             <c:if test="${user.id > 0}">
-                <input type="button"
-                        onclick="location.href='<c:url value="/userinfo/${user.id}"/>'"
-                        value="&lt;"/>
+                <button onclick="location.href='<c:url value="/userinfo/${user.id}"/>'">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </button>
                 <input type="submit" value="Update"/>
             </c:if>
             <c:if test="${user.id == 0}">
-                <input type="button"
-                        onclick="location.href='<c:url value="/main"/>'"
-                        value="&lt;"/>
+                <button onclick="location.href='<c:url value="/main"/>'">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </button>
                 <input type="submit" value="Add"/>
             </c:if>
         </div>
     </form:form>
-    <div style="clear:both;"></div>
-    </div>
+    <div class="clear"></div>
+</div>
 </body>
 </html>

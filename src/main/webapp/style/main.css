@@ -88,3 +88,7 @@ span {
     position: relative;
     top: 7px;
 }
+
+span.nav-arrow {
+    top: 4px;
+}

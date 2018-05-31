@@ -80,6 +80,14 @@ table {
     clear: both;
 }
 
+.green {
+    color: #4eb543;
+}
+
+.red {
+    color: red;
+}
+
 .error {
     color: red;
 }

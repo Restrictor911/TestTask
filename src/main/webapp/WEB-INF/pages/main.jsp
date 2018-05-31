@@ -6,20 +6,21 @@
 <html>
 <head>
     <title>Main Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="/style/style.css"/>
     <link rel="stylesheet" href="/style/main.css"/>
 </head>
 <body>
-    <div class="content">
+<div class="content">
     <div class="header">
         <a href="/main"><span>JavaRush } Test Task</span></a>
     </div>
 
     <c:url var="search" value="/search"/>
     <form:form action="${search}" cssClass="searchForm" commandName="user">
-        <form:input path="name" cssClass="search" />
+        <form:input path="name" cssClass="search"/>
         <input type="submit" class="button searchButton"
-            value="<spring:message text="Find"/>"/>
+               value="<spring:message text="Find"/>"/>
         <div class="clear"></div>
     </form:form>
 
@@ -40,13 +41,13 @@
                     </td>
                     <td align="center">${user.age}</td>
                     <c:if test="${user.isAdmin}">
-                        <td align="center">Yes</td>
+                        <td align="center"><i class="material-icons green">done</i></td>
                     </c:if>
                     <c:if test="${!user.isAdmin}">
                         <td></td>
                     </c:if>
                     <td align="center"><fmt:formatDate type="date"
-                    value="${user.createdDate}"/></td>
+                                                       value="${user.createdDate}"/></td>
                 </tr>
             </c:forEach>
         </table>
@@ -54,16 +55,16 @@
 
     <div class="footer">
         <input type="button" id="addButton" class="button"
-            onclick="location.href='<c:url value="/add"/>'"
-            value="<spring:message text="Add User"/>"/>
+               onclick="location.href='<c:url value="/add"/>'"
+               value="<spring:message text="Add User"/>"/>
 
         <ul class="pages">
             <c:set var="nameParam" value="${user.name ? '?name=' + user.name : ''}"/>
             <c:if test="${paginator.currentPage > 0}">
                 <li>
-                <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
-                    <span class="linkText">&lt;</span>
-                </a>
+                    <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
+                        <span class="nav-arrow"><i class="material-icons">keyboard_arrow_left</i></span>
+                    </a>
                 </li>
             </c:if>
             <c:if test="${paginator.currentPage == 0}">
@@ -73,18 +74,18 @@
                 <c:forEach var="i" begin="1" end="4">
                     <c:if test="${i <= paginator.maxPage}">
                         <li>
-                        <a href="<c:url value='/${paginator.mode}/${i}${nameParam}'/>">
-                            <span class="linkText">${i + 1}</span>
-                        </a>
+                            <a href="<c:url value='/${paginator.mode}/${i}${nameParam}'/>">
+                                <span class="linkText">${i + 1}</span>
+                            </a>
                         </li>
                     </c:if>
                 </c:forEach>
             </c:if>
             <c:if test="${paginator.currentPage == 1}">
                 <li>
-                <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
-                    <span class="linkText">${paginator.currentPage}</span>
-                </a>
+                    <a href="<c:url value='/${paginator.mode}/${paginator.currentPage - 1}?name=${user.name}'/>">
+                        <span class="linkText">${paginator.currentPage}</span>
+                    </a>
                 </li>
                 <li class="currentPage">
                     <span class="currentText">${paginator.currentPage + 1}</span>
@@ -92,21 +93,21 @@
                 <c:forEach var="i" begin="2" end="4">
                     <c:if test="${i <= paginator.maxPage}">
                         <li>
-                        <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
-                            <span class="linkText">${i + 1}</span>
-                        </a>
+                            <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
+                                <span class="linkText">${i + 1}</span>
+                            </a>
                         </li>
                     </c:if>
                 </c:forEach>
             </c:if>
             <c:if test="${paginator.currentPage > 1}">
                 <c:forEach var="i" begin="${paginator.currentPage - 2}"
-                    end="${paginator.currentPage + 2}">
+                           end="${paginator.currentPage + 2}">
                     <c:if test="${i <= paginator.maxPage && i != paginator.currentPage}">
                         <li>
-                        <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
-                            <span class="linkText">${i + 1}</span>
-                        </a>
+                            <a href="<c:url value='/${paginator.mode}/${i}?name=${user.name}'/>">
+                                <span class="linkText">${i + 1}</span>
+                            </a>
                         </li>
                     </c:if>
                     <c:if test="${i == paginator.currentPage}">
@@ -119,14 +120,14 @@
 
             <c:if test="${paginator.currentPage < paginator.maxPage}">
                 <li>
-                <a href="<c:url value='/${paginator.mode}/${paginator.currentPage + 1}?name=${user.name}'/>">
-                    <span class="linkText">&gt;</span>
-                </a>
+                    <a href="<c:url value='/${paginator.mode}/${paginator.currentPage + 1}?name=${user.name}'/>">
+                        <span class="nav-arrow"><i class="material-icons">keyboard_arrow_right</i></span>
+                    </a>
                 </li>
             </c:if>
         </ul>
     </div>
     <div class="clear"></div>
-    </div>
+</div>
 </body>
 </html>
