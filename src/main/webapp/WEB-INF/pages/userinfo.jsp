@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>User Info</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="/style/style.css"/>
     <link rel="stylesheet" href="/style/userinfo.css"/>
@@ -35,15 +36,15 @@
     </div>
 
     <div class="footer">
-        <button onclick="location.href='<c:url value="/main"/>'">
+        <button onclick="location.href='<c:url value="/main"/>'" class="button button-nav left">
             <i class="material-icons">keyboard_arrow_left</i>
         </button>
 
         <form:form action="edit/${user.id}">
-            <input type="submit" value="<spring:message text="Edit User"/>"/>
+            <input type="submit" class="button right" value="<spring:message text="Edit User"/>"/>
         </form:form>
         <form:form action="remove/${user.id}">
-            <input type="submit" value="<spring:message text="Delete User"/>"/>
+            <input type="submit" class="button right" value="<spring:message text="Delete User"/>"/>
         </form:form>
 
         <div class="clear"></div>

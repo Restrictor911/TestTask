@@ -31,7 +31,7 @@ th, td {
 .users th {
     font-weight: normal;
     color: #fff;
-    background-color: #4eb543;
+    background-color: #43a047;
 }
 
 .users td {
@@ -49,26 +49,15 @@ th, td {
     padding: 0;
 }
 
-.button {
-    float: right;
-    width: 100px;
-    padding: 8px 10px;
-    background-color: #4eb543;
-    font-size: 14px;
-    color: #fff;
-    border: none;
-}
-
 li {
     display: block;
     float: left;
     margin-right: 10px;
     width: 32px;
     height: 32px;
-    background-color: #4eb543;
+    background-color: #43a047;
     text-align: center;
     font-size: 18px;
-    font-family: Arial, sans-serif;
 }
 
 li a {

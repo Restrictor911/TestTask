@@ -6,6 +6,7 @@
 <html>
 <head>
     <title>Main Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="/style/style.css"/>
     <link rel="stylesheet" href="/style/main.css"/>
@@ -19,7 +20,7 @@
     <c:url var="search" value="/search"/>
     <form:form action="${search}" cssClass="searchForm" commandName="user">
         <form:input path="name" cssClass="search"/>
-        <input type="submit" class="button searchButton"
+        <input type="submit" class="button right"
                value="<spring:message text="Find"/>"/>
         <div class="clear"></div>
     </form:form>
@@ -54,7 +55,7 @@
     </c:if>
 
     <div class="footer">
-        <input type="button" id="addButton" class="button"
+        <input type="button" class="button right"
                onclick="location.href='<c:url value="/add"/>'"
                value="<spring:message text="Add User"/>"/>
 

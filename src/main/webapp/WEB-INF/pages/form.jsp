@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>Form Page</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <link rel="stylesheet" href="/style/style.css"/>
     <link rel="stylesheet" href="/style/form.css"/>
@@ -60,16 +61,16 @@
         </div>
         <div class="footer">
             <c:if test="${user.id > 0}">
-                <button onclick="location.href='<c:url value="/userinfo/${user.id}"/>'">
+                <button class="button button-nav left" onclick="location.href='<c:url value="/userinfo/${user.id}"/>'">
                     <i class="material-icons">keyboard_arrow_left</i>
                 </button>
-                <input type="submit" value="Update"/>
+                <input class="button right" type="submit" value="Update"/>
             </c:if>
             <c:if test="${user.id == 0}">
-                <button onclick="location.href='<c:url value="/main"/>'">
+                <button class="button button-nav left" onclick="location.href='<c:url value="/main"/>'">
                     <i class="material-icons">keyboard_arrow_left</i>
                 </button>
-                <input type="submit" value="Add"/>
+                <input class="button right" type="submit" value="Add"/>
             </c:if>
         </div>
     </form:form>

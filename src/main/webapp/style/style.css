@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Roboto, Arial, sans-serif;
     color: #777;
     background-color: #ddd;
 }
@@ -22,7 +22,7 @@ body {
     font-family: Tahoma, Arial, sans-serif;
     height: 64px;
     margin: 10px;
-    background-color: #4eb543;
+    background-color: #43a047;
     color: #fff;
     text-decoration: none;
     font-size: 32px;
@@ -75,19 +75,45 @@ table {
 .footer {
     padding-top: 15px;
 }
-
+/*
+    POSITION
+ */
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
 .clear {
     clear: both;
 }
-
+/*
+    COLOR
+ */
 .green {
-    color: #4eb543;
+    color: #43a047;
 }
-
-.red {
-    color: red;
+.red, .error {
+    color: #c62828;
 }
-
-.error {
-    color: red;
+/*
+    COMPONENTS
+ */
+.button {
+    width: 100px;
+    height: 32px;
+    padding: 8px 10px;
+    background-color: #43a047;
+    font-size: 14px;
+    color: #fff;
+    border: none;
+}
+.button-nav {
+    width: 32px;
+    font-size: 18px;
+}
+.button-nav > i {
+    margin: -5px -10px;
+    position: relative;
+    left: -10%;
 }
