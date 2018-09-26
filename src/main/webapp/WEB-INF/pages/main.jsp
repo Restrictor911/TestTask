@@ -8,8 +8,8 @@
     <title>Main Page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
-    <link rel="stylesheet" href="/style/style.css"/>
-    <link rel="stylesheet" href="/style/main.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/style.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/style/main.css"/>
 </head>
 <body>
 <div class="content">

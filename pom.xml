@@ -110,7 +110,17 @@
 
     <build>
         <finalName>TestTask</finalName>
+        <resources>
+
+        </resources>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <outputDirectory>d:\soft\apache-tomcat-8.0.47\webapps</outputDirectory>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
@@ -123,6 +133,7 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.1</version>
                 <configuration>
+                    <port>8079</port>
                     <path>/</path>
                 </configuration>
             </plugin>
